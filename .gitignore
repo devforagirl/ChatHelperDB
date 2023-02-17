@@ -1,39 +1,42 @@
-# Ignore virtual environments
-venv/
-env/
-ENV/
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
 
-# Ignore Python bytecode files
-*.pyc
-*.pyo
-__pycache__/
-
-# Ignore IDE and editor files
+# Editor
 .vscode/
-*.idea/
-*.iml
-*.ipr
-*.iws
-*.bak
 *.swp
-*~
+*.swo
 
-# Ignore log files
+# Logs
 logs/
 *.log
 
-# Ignore database files
-db.sqlite3
+# Environment variables
+.env
 
-# Ignore compiled binaries
-*.exe
-*.pyd
-*.dll
-*.so
-*.dylib
+# Dependencies
+/venv/
+/yarn-error.log
+yarn.lock
 
-# Ignore dependencies and build artifacts
-node_modules/
-build/
-dist/
-test233/
+# Mac-specific
+.DS_Store
+
+# Heroku
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/.name
+/.idea/compiler.xml
+/.idea/deployment.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/runConfigurations.xml
+/target/
+.idea/
+*.iml
+
+# Vercel
+.vercel
