@@ -22,6 +22,8 @@ logs/
 /yarn-error.log
 yarn.lock
 
+package-lock.json
+
 # Mac-specific
 .DS_Store
 
