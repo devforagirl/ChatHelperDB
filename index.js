@@ -4,7 +4,8 @@ const connectDB = require('./config/db')
 // const morgan = require('morgan')
 
 // 载入设置文件 config
-dotenv.config({ path: './config/config.env' })
+// dotenv.config({ path: './config/config.env' })
+dotenv.config({ path: '.env' })
 
 connectDB()
 

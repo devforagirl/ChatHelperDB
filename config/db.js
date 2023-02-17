@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 
 const connectDB = async () => {
   try {
-    console.log(`process.env.MONGO_URI-> ${process.env.MONGO_URI}`);
-    const conn = await mongoose.connect('mongodb+srv://chip:YceCLg0VqKhcv3oS@clusterchipdale.ub6uo.mongodb.net/ClusterChipDale?retryWrites=true&w=majority',
+    console.log(`process.env.DATABASE_URL -> ${process.env.DATABASE_URL}`);
+    const conn = await mongoose.connect(process.env.DATABASE_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
