@@ -1,0 +1,39 @@
+# Ignore virtual environments
+venv/
+env/
+ENV/
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore IDE and editor files
+.vscode/
+*.idea/
+*.iml
+*.ipr
+*.iws
+*.bak
+*.swp
+*~
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore database files
+db.sqlite3
+
+# Ignore compiled binaries
+*.exe
+*.pyd
+*.dll
+*.so
+*.dylib
+
+# Ignore dependencies and build artifacts
+node_modules/
+build/
+dist/
+test233/
