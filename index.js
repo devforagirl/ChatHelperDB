@@ -35,7 +35,9 @@ app.use((error, req, res, next) => {
   })
 })
 
-const PORT = process.env.PORT || 3002
+// const PORT = process.env.PORT || 3002
+// 3002已改成3003
+const PORT = process.env.PORT
 
 app.listen(PORT, function () {
   console.log(`Server is Running in ${process.env.NODE_ENV} mode on port ${PORT}`)
