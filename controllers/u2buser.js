@@ -20,7 +20,7 @@ exports.login_getUserInfo = async (req, res) => {
       } {
         if (userRes) {
           // email已存在，获取并发送此用户资料
-          const token = jwt.sign({ user_info }, 'the_secret_key')
+          const token = jwt.sign({ user_info }, process.env.JWT_SECRET)
           // In a production app, you'll want the secret key to be an environment variable
 
           res.json({
@@ -65,7 +65,7 @@ exports.register_addUser = async (req, res) => {
               console.log(err)
               res.status(500).send(err)
             } else {
-              token_register = jwt.sign({ user_info }, 'the_secret_key')
+              token_register = jwt.sign({ user_info }, process.env.JWT_SECRET)
               user_res = userRes
               // In a production app, you'll want the secret key to be an environment variable
             }
@@ -102,7 +102,7 @@ exports.register_addUser = async (req, res) => {
 }
 
 exports.dashboard_getUserSetting = (req, res) => {
-  jwt.verify(req.token, 'the_secret_key', async (err, tokenRes) => {
+  jwt.verify(req.token, process.env.JWT_SECRET, async (err, tokenRes) => {
     if (err) {
       res.sendStatus(401)
     } else {
@@ -128,7 +128,7 @@ exports.saveUserSettings = (req, res) => {
   console.log('req.token2->', req.token)
   // req.body-> { x: 5, y: 6, flagScrollToBottom: true }
 
-  jwt.verify(req.token, 'the_secret_key', async (err, tokenRes) => {
+  jwt.verify(req.token, process.env.JWT_SECRET, async (err, tokenRes) => {
     if (err) {
       res.sendStatus(401)
     } else {

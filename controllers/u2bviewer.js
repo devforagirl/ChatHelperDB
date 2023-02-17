@@ -11,7 +11,7 @@ exports.getAllFavUsersInfo = async (req, res) => {
 
 // 获取某一个 viewer 的全部留言
 exports.getChatsByViewerId = async (req, res) => {
-  jwt.verify(req.token, 'the_secret_key', async (err, tokenRes) => {
+  jwt.verify(req.token, process.env.JWT_SECRET, async (err, tokenRes) => {
     if (err) {
       res.sendStatus(401)
     } else {
