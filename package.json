@@ -27,7 +27,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.5",
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
   }
 }

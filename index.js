@@ -1,45 +1,27 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const connectDB = require('./config/db')
-// const morgan = require('morgan')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const routes = require('./routes');
 
-// 载入设置文件 config
-// dotenv.config({ path: './config/config.env' })
-dotenv.config({ path: '.env' })
+require('dotenv').config();
 
-connectDB()
+const app = express();
+const port = process.env.PORT;
 
-const app = express()
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+mongoose
+  .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.log('Error connecting to MongoDB:', err));
 
-// 路由文件 routes
-app.use('/', require('./routes/index'))
+app.use('/api', routes);
 
-// // morgan 似乎只有错误才成功，是因为next关键字的原因吗？?
-// app.use(morgan('dev'))
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
 
-// // 处理errors
-// app.use((req, res, next) => {
-//   const error = new Error('Not found 233')
-//   error.status = 404
-//   next(error)
-// })
-
-app.use((error, req, res, next) => {
-  res.status(error.status || 500)
-  res.json({
-    error: {
-      message: error.message
-    }
-  })
-})
-
-// const PORT = process.env.PORT || 3002
-// 3002已改成3003
-const PORT = process.env.PORT
-
-app.listen(PORT, function () {
-  console.log(`Server is Running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-})
+app.listen(port, () => console.log(`Server is running on port ${port}`));

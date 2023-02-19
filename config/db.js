@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const connectDB = async () => {
   try {
-    console.log(`process.env.DATABASE_URL -> ${process.env.DATABASE_URL}`);
+    console.log(`process.env.DATABASE_URL :)) -> ${process.env.DATABASE_URL}`);
     const conn = await mongoose.connect(process.env.DATABASE_URL,
       {
         useNewUrlParser: true,
