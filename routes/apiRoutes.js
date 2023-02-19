@@ -16,17 +16,21 @@ router.post('/login', apiController.login_getUserInfo)
 router.get('/dashboard', verifyToken, apiController.dashboard_getUserSetting)
 router.post('/settings', verifyToken, apiController.saveUserSettings)
 
-// MIDDLEWARE 让gpt稍后再optimize一次
-function verifyToken(req, res, next) {
-  const bearerHeader = req.headers['authorization']
+async function verifyToken(req, res, next) {
+  try {
+    const bearerHeader = req.headers['authorization'];
 
-  if (typeof bearerHeader !== 'undefined') {
-    const bearer = bearerHeader.split(' ')
-    const bearerToken = bearer[1]
-    req.token = bearerToken
-    next()
-  } else {
-    res.sendStatus(401)
+    if (typeof bearerHeader !== 'undefined') {
+      const bearer = bearerHeader.split(' ');
+      const bearerToken = bearer[1];
+      req.token = bearerToken;
+      next();
+    } else {
+      res.sendStatus(401);
+    }
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
   }
 }
 
