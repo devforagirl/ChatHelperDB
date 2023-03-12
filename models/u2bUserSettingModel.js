@@ -6,9 +6,13 @@ const U2bUserSettingSchema = mongoose.Schema(
       type: String,
       default: "Emptyuser_email"
     },
+    // audio_ids: {	
+    //   type: [String],	
+    //   default: ['1', '2', '4']	
+    // },
     audio_ids: {	
-      type: [String],	
-      default: ['1', '2', '4']	
+      type: [Object],	
+      default: [{num:'1'}, {num:'2'}, {num:'5'}]	
     },
     // audio_ids: [{
     //   audio_id: Number,
