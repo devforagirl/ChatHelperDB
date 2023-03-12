@@ -14,10 +14,6 @@ const U2bUserSettingSchema = mongoose.Schema(
       type: [Object],	
       default: [{adoId:'1', adoNote:'birdsing'}, {adoId:'2', adoNote:'dogbarking'}, {adoId:'3', adoNote:'phonering'}]	
     },
-    // audio_ids: [{
-    //   audio_id: Number,
-    //   audio_note: String
-    // }],
     viewer_ids: { // user_channel_id
       type: [String],
       default: ['UCgMiVaSvG5ysiypOfmqjnx4', 'UCgMiVaSvG5ysiypOfmqjnx5', 'UCgMiVaSvG5ysiypOfmqjnx6']

@@ -18,6 +18,10 @@ router.post('/settings', verifyToken, apiController.saveUserSettings)
 // -------------------------------------------------------
 // 修改router.post('/settings', verifyToken, apiController.saveUserSettings)
 // router.post('/???', verifyToken, apiController.saveUserSettings)
+// -------------------------------------------------------
+// test
+router.get('/audiotest', apiController.getAdoIds);
+
 
 async function verifyToken(req, res, next) {
   try {
