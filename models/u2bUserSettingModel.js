@@ -12,7 +12,7 @@ const U2bUserSettingSchema = mongoose.Schema(
     // },
     audio_ids: {	
       type: [Object],	
-      default: [{num:'3', name:'tom'}, {num:'1', name:'lucy'}, {num:'1', name:'kleen'}]	
+      default: [{adoId:'1', adoNote:'birdsing'}, {adoId:'2', adoNote:'dogbarking'}, {adoId:'3', adoNote:'phonering'}]	
     },
     // audio_ids: [{
     //   audio_id: Number,
