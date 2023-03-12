@@ -6,22 +6,6 @@ const U2bUserSettingSchema = mongoose.Schema(
       type: String,
       default: "Emptyuser_email"
     },
-    id: {
-      type: String,
-      default: "Emptyid"
-    },
-    title: {
-      type: String,
-      default: "Emptytitle"
-    },
-    time: {
-      type: String,
-      default: "Emptytime"
-    },
-    date: {
-      type: String,
-      default: "Emptydate"
-    },
     audio_ids: {
       type: [String],
       default: ['1', '2', '3']
@@ -32,7 +16,7 @@ const U2bUserSettingSchema = mongoose.Schema(
     },
     user_settings: {
       type: String,
-      default: '{"x":5,"y":6}'
+      default: '{"x":5,"y":6,"flagScrollToBottom":true,"flagTimeDisplayFormat":true,"flagAvatar":false,"numStoredChats":"20","chatsSpeed":2}'
     },
     numStoredChats: { // 改前端默认的类型字符串"20"为数字20
       type: Number,
