@@ -26,6 +26,7 @@ router.get('/audiotest', apiController.getAdoIds);
 async function verifyToken(req, res, next) {
   try {
     const bearerHeader = req.headers['authorization'];
+    console.log('req.headers->', req.headers);
 
     if (typeof bearerHeader !== 'undefined') {
       const bearer = bearerHeader.split(' ');
