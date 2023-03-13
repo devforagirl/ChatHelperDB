@@ -9,15 +9,15 @@ const getAdoIds = async (req, res) => {
   U2bUserSettingModel.find({ user_email: '10@mail.com' })
 .then((result) => {
   let audioIds = []
-  console.log('audioIds 1', result)
+  // console.log('audioIds 1', result)
   result.forEach((doc) => {
-    console.log('audioIds 2', doc)
+    // console.log('audioIds 2', doc)
     for (let audio of doc.audio_ids) {
-      console.log('audioIds 3', audio)
+      // console.log('audioIds 3', audio)
       audioIds.push(audio.adoId)
     }
   })
-  console.log('audioIds 4', audioIds)
+  // console.log('audioIds 4', audioIds)
 })
 .catch((err) => {
   console.log('err', err)
@@ -253,13 +253,15 @@ const dashboard_getUserSetting = (req, res) => {
 
       const result4 = await U2bUserSettingAudioModel.find({ audio_id: { "$in": result2[0].audio_ids } })
 
-      const result5 = await U2bUserSettingModel.find({ user_email: tokenRes.user_info.user_email })
+      // const result5 = await U2bUserSettingModel.find({ user_email: tokenRes.user_info.user_email })
+
+      // console.log('@@ result5', result5)
 
       const dataToSend = {
         'usersetting': result2[0],
         'viewers': result3,
-        'audios': result4,
-        'audiosv2': result5.audio_ids
+        'audios': result4
+        // 'audiosv2': result5.audio_ids
       }
 
       res.json(dataToSend)
