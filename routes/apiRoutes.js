@@ -36,7 +36,7 @@ async function verifyToken(req, res, next) {
       res.sendStatus(401);
     }
   } catch (error) {
-    console.log(error);
+    console.log('error->', error);
     res.sendStatus(500);
   }
 }
